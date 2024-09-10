@@ -117,6 +117,8 @@
     document.getElementById("break-turn-button").addEventListener("click",()=>{
         const breakTurn=parseFloat(document.getElementById("break-turn").value);
         const tableRows=document.getElementById("brokeTable-body").getElementsByTagName("tr");
+        const activationGrade=parseFloat(document.getElementById("activation").value);
+
 
         if(!Number.isNaN(breakTurn)){
             for(let i=0;i<tableRows.length;i++){
@@ -130,18 +132,17 @@
                 tableRows[2*i].style.backgroundColor="#eee";
             }
 
-            const targetIndex=4-(Math.floor(breakTurn)%5);
-
-            if(targetIndex<tableRows.length){
-                tableRows[targetIndex].style.backgroundColor="#ffa07a";
-                if(targetIndex<3){
-                    tableRows[targetIndex+4].style.backgroundColor="#ffa07a";
+            const targetIndex=activationGrade-1-(Math.floor(breakTurn)%activationGrade);
+            tableRows[targetIndex].style.backgroundColor="#ffa07a";
+            console.log(tableRows.length);
+            for(let i=1;i<tableRows.length;i++){
+                if(targetIndex+i*activationGrade>=tableRows.length-1){
+                    break;
                 }
+                tableRows[targetIndex+i*activationGrade].style.backgroundColor="#ffa07a";
+                
             }
-            else{
-                alert("指定されたターンは範囲外です");
-            }
-
+            
         }
         else{
             alert("有効な数値を入力してください。");
