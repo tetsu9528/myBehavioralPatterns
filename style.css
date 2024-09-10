@@ -10,6 +10,7 @@ body {
 #break-turn-container{
    margin:32px 0;
 }
+#activation,
 #break-turn{
     display: block;
     width:300px;
