@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ターンアクション表示アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>スコアアタック</h1>
+    
+    <div id="search-container">
+        <input type="text" id="search-bar" placeholder="検索...">
+        <div id="suggestions" class="suggestions-box"></div>
+    </div>
+    
+    <button id="search-button">検索</button>
+
+    <!-- break-turn 用の input フィールドとボタン -->
+    <div id="break-turn-container">
+        <label for="break-turn">ブレイクしたターンを入力してください：</label>
+        <input type="number" id="break-turn" placeholder="ターン数">
+        <button id="break-turn-button">ブレイクターン適用</button>
+    </div>
+
+    <table id="action-table" style="display:none;">
+        <thead>
+            <tr>
+                <th>ターン</th>
+                <th>行動(ブレイク前)</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+
+    <table id="action-table2" style="display:none;">
+        <thead>
+            <tr>
+                <th>ターン</th>
+                <th>行動(ブレイク後)</th>
+            </tr>
+        </thead>
+        <tbody id="table-body2">
+        </tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
