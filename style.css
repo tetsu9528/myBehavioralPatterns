@@ -10,6 +10,7 @@ body {
 #break-turn-container{
    margin:32px 0;
 }
+#difficulty,
 #activation,
 #break-turn{
     display: block;
@@ -66,6 +67,10 @@ table{
   table tr:nth-child(odd){
     background-color: #eee;
   }
-  table tr:nth-child(5n){
-    background-color: #ffa07a;
+
+  table tr:nth-last-child(1){
+    background-color: #000;
+    color:#fff;
   }
+
+
