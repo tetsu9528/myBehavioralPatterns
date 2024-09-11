@@ -4,8 +4,6 @@
     const searchBar=document.getElementById("search-bar");
     const difficulty=document.getElementById("difficulty");
 
-    
-
     const suggestions=["フローシェスノッカー"];
 
     let actions=[];
@@ -177,10 +175,18 @@
             }
         }
 
-       
-       
+       addColor();
+    })
 
-         //グレードが発動するターンと00ターン目を着色
+    calculateGrade();
+
+
+
+
+
+    //関数一覧
+    //グレードが発動するターンと見出しと00ターン目を着色
+    function addColor(){
         const tableRows=document.getElementById("table-body").getElementsByTagName("tr");
         const activationGrade=parseFloat(document.getElementById("activation").value);//変数が重複しています。
         if(!Number.isNaN(activationGrade)){
@@ -190,27 +196,26 @@
         }
        tableRows[i*activationGrade-1].style.backgroundColor="#ffa07a";
         }
-    }
+        }
         else{
             alert("該当キャラが存在しません。");
             document.getElementById("action-table").style.display = "none";
             document.getElementById("brokeAction-table").style.display = "none";
         }
-    })
-
+    }
     //ブレイク後のグレードを計算
-    const brokeTableRows=document.getElementById("brokeTable-body").getElementsByTagName("tr");
-    
-    document.getElementById("break-turn-button").addEventListener("click",()=>{
+    function calculateGrade(){
+        const brokeTableRows=document.getElementById("brokeTable-body").getElementsByTagName("tr");
+        document.getElementById("break-turn-button").addEventListener("click",()=>{
         const breakTurn=parseFloat(document.getElementById("break-turn").value);
         const activationGrade=parseFloat(document.getElementById("activation").value);
         if(!Number.isNaN(breakTurn)){
             for(let i=0;i<brokeTableRows.length-1;i++){
                 brokeTableRows[i].style.backgroundColor="initial";
             }
-            for(let i=0;i<brokeTableRows.length;i++){
+            for(let i=0;i<brokeTableRows.length-1;i++){
                 let j=2*i;
-                if(j>=brokeTableRows.length){
+                if(j>=brokeTableRows.length-1){
                     break;
                 }
                 brokeTableRows[2*i].style.backgroundColor="#eee";
@@ -232,10 +237,8 @@
         }
     });
 
-
-
-    //関数一覧
-    //tableBodyを取得するプログラム
+    }
+//tableBodyを取得するプログラム
     function getTableBody(){
         const tableBody=document.getElementById("table-body");
         tableBody.innerHTML="";
