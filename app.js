@@ -197,11 +197,6 @@
        tableRows[i*activationGrade-1].style.backgroundColor="#ffa07a";
         }
         }
-        else{
-            alert("該当キャラが存在しません。");
-            document.getElementById("action-table").style.display = "none";
-            document.getElementById("brokeAction-table").style.display = "none";
-        }
     }
     //ブレイク後のグレードを計算
     function calculateGrade(){
